@@ -1,4 +1,4 @@
-import APsection from "./APsection";
+import APsection from "./APSection";
 
 const sectionData = [
   {

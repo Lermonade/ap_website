@@ -1,6 +1,6 @@
 import Navbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
-import APsection from "@/components/landingPage/APsection";
+import APsection from "@/components/landingPage/APSection";
 import APLibrary from "@/components/landingPage/APLibrary";
 
 export default function Page() {

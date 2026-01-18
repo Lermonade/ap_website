@@ -48,7 +48,10 @@ function StrikeButton({
 }) {
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        e.preventDefault();  // Prevents clicks on the StrikeButton from selecting/unselecting the answer choice.
+        onClick();
+      }}
       className={clsx(
         "flex size-[18px] items-center justify-center rounded-full border border-black line-through transition-colors",
         active && "bg-gray-200",
@@ -152,7 +155,10 @@ export default function QuestionPanel({
                     <div className="ml-auto flex items-center gap-2">
                       {isStrikedThrough ? (
                         <button
-                          onClick={() => toggleStrike(index, option.id)}
+                          onClick={(e) => {
+                            e.preventDefault(); // Prevents clicks on the "undo" button from selecting/unselecting the answer choice.
+                            toggleStrike(index, option.id);
+                          }}
                           className="text-sm font-medium text-[#3075c1]"
                         >
                           Undo

@@ -258,7 +258,7 @@ function ArticleCreator({ className }: { className?: string }) {
         </div>
 
         {/* Right column: Renderer */}
-        <div className="px-8">
+        <div className="px-8 break-words overflow-hidden">
           <div className="pb-8 pt-4 opacity-50">Preview:</div>
           <Renderer content={data} />
         </div>

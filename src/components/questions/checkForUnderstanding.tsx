@@ -15,18 +15,19 @@ const CheckForUnderstanding: React.FC<Props> = ({ questionInstance }) => {
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleSelectOption = (id: string) => {
+    if (submitted) return;
+
     const numAnswers = questionInstance.answers.length;
-    if (!submitted) {
-      if (numAnswers === 1) {
-        setSelectedOptions([id]);
-        return;
-      }
-      if (selectedOptions.includes(id)) {
-        setSelectedOptions(selectedOptions.filter((oid) => oid !== id));
-        return;
-      }
+
+    if (numAnswers === 1) {
+      setSelectedOptions([id]);
+    } else {
+      setSelectedOptions((prev) =>
+        prev.includes(id) ? prev.filter((oid) => oid !== id) : [...prev, id]
+      );
     }
   };
+
 
   const handleSubmit = () => {
     if (selectedOptions.length > 0) {

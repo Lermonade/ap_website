@@ -118,11 +118,11 @@ export default function QuestionPanel({
                   isStrikedThrough && "striked-through",
                   submitted &&
                     selectedAnswers.includes(option.id) &&
-                    questionInstance.answers.includes(`${index + 1}`) &&
+                    questionInstance.answers.includes(option.id) &&
                     "border-green-500 bg-green-200",
                   submitted &&
                     selectedAnswers.includes(option.id) &&
-                    !questionInstance.answers.includes(`${index + 1}`) &&
+                    !questionInstance.answers.includes(option.id) &&
                     "border-red-500 bg-red-200",
                 )}
               >
@@ -174,7 +174,7 @@ export default function QuestionPanel({
                   )}
 
                   {submitted &&
-                    (questionInstance.answers.includes(`${index + 1}`) ? (
+                    (questionInstance.answers.includes(option.id) ? (
                       <Check className="ml-auto stroke-green-500 stroke-[3px]" />
                     ) : (
                       <X className="ml-auto stroke-red-500 stroke-[3px]" />
